@@ -20,7 +20,7 @@ Standar Status Respon
 
 GROUP: Authentication
 1 - Register
-{root.api}/{version}/auth/register
+[POST] : {root.api}/{version}/auth/register
 
 req:
 {
@@ -64,27 +64,33 @@ error-response:
 
 Group: Blog
 1 - Create blog post
-{root.api}/{version}/create-blog
+[POST] : {root.api}/{version}/blog/post
+
 req:
 {
 	"title": "Title Post",
-	"image-cover: "cover.png",
-	"description": "Description post is an explanation about your post"
+	"image: "cover.png",
+	"body": "Description post is an explanation about your post"
 }
+
 res: {
-	"message": "Your post has been successfully submitted",
+	"message": "Create Blog Post Success",
 	"data": {
-		"id": 1,
-		"author": "John Doe",
-		"date": "November 22th 2022",
+		"post_id": 1,
+		"created_at": "12/06/2022",
 		"title": "Title post",
-		"image-cover: "cover.png",
-		"description": "Description post is an explanation about your post"
+		"image": "cover.png",
+		"body": "Description post is an explanation about your post",
+		"author": {
+			"id" : 1,
+			"name" : "John Doe",
+		}
 	}
 }
 
 error-response:
-400 -> Your post is cannot be submitted
+201 -> Blog Post Berhasil Dibuat
+400 -> Input yang anda masukan tidak valid
 
 2 - get blog post
 3 - update blog post

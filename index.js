@@ -5,6 +5,7 @@ const app = express();
 
 const productRoutes = require('./src/routes/products')
 const authRoutes = require('./src/routes/auth')
+const blogRoutes = require('./src/routes/blog')
 
 /* Handle CORS */
 app.use((req, res, next) => {
@@ -19,5 +20,6 @@ app.use(bodyParser.json());
 
 app.use('/v1/customer', productRoutes);
 app.use('/v1/auth', authRoutes);
+app.use('/v1/blog', blogRoutes);
 
 app.listen(5000);
