@@ -1,0 +1,85 @@
+Standar API:
+{root.api}/{version}/{group}/{endpoint}
+
+SAMPLE:
+https://mern-api-blog.vercel.app/v1/auth/login
+
+Standar Status Respon
+
+200 - OK --> Call API Success
+201 - CREATED --> Post Success
+400 - BAD REQUEST --> Error on Client Side
+401 - UNAUTHORIZED --> User not allowed to REQUEST
+404 - FORBIDDEN --> User not allowed to access
+500 - INTERNAL SERVER ERROR --> Error on Server Side
+502 - BAD GATEWAY --> Invalid Response From Another Request
+
+
+
+GROUP: Authentication
+1 - Register
+{root.api}/{version}/auth/register
+
+req:
+{
+	"name": "Testing",
+	"email": "test@email.com",
+	"password": "123123"
+}
+res:
+{
+	"message": "Register Success",
+	"data": {
+		"id": 1,
+		"name": "Testing",
+		"email": "test@email.com".
+		"password": "123123"
+	}
+}
+error-response:
+400 -> Input yang anda masukan tidak valid
+
+2 - Login
+{root.api}/{version}/auth/login
+
+req:
+{
+	"email": "test@email.com",
+	"password": "123123"
+}
+res:
+{
+	"message": "Login Success",
+	"data": {
+		"email": "test@email.com".
+		"password": "123123"
+	}
+}
+error-response:
+400 -> Input yang anda masukan tidak valid
+
+3 - Create blog post
+{root.api}/{version}/create-blog
+req:
+{
+	"title": "Title Post",
+	"image-cover: "cover.png",
+	"description": "Description post is an explanation about your post"
+}
+res: {
+	"message": "Your post has been successfully submitted",
+	"data": {
+		"id": 1,
+		"author": "John Doe",
+		"date": "November 22th 2022",
+		"title": "Title post",
+		"image-cover: "cover.png",
+		"description": "Description post is an explanation about your post"
+	}
+}
+
+GROUP: Blog
+1 - create blog post
+2 - get blog post
+3 - update blog post
+4 - delete blog post

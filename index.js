@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 
 const app = express();
 
@@ -12,7 +13,9 @@ app.use((req, res, next) => {
 	next();
 })
 
+app.use(bodyParser.json());
+
 
 app.use('/v1', productRoutes);
 
-app.listen(4000);
+app.listen(5000);
