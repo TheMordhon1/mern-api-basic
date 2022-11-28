@@ -1,8 +1,10 @@
 Standar API:
-{root.api}/{version}/{group}/{endpoint}
+[METHOD] : {root.api}/{version}/{group}/{endpoint}
 
 SAMPLE:
-https://mern-api-blog.vercel.app/v1/auth/login
+[POST] : https://mern-api-blog.vercel.app/v1/auth/login
+
+===============================================================
 
 Standar Status Respon
 
@@ -14,7 +16,7 @@ Standar Status Respon
 500 - INTERNAL SERVER ERROR --> Error on Server Side
 502 - BAD GATEWAY --> Invalid Response From Another Request
 
-
+===============================================================
 
 GROUP: Authentication
 1 - Register
@@ -58,7 +60,10 @@ res:
 error-response:
 400 -> Input yang anda masukan tidak valid
 
-3 - Create blog post
+===============================================================
+
+Group: Blog
+1 - Create blog post
 {root.api}/{version}/create-blog
 req:
 {
@@ -78,8 +83,9 @@ res: {
 	}
 }
 
-GROUP: Blog
-1 - create blog post
+error-response:
+400 -> Your post is cannot be submitted
+
 2 - get blog post
 3 - update blog post
 4 - delete blog post
