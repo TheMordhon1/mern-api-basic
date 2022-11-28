@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
 
 const app = express();
 
@@ -29,4 +30,9 @@ app.use((error, req, res, next) => {
 	res.status(status).json({ message: message, data: data })
 })
 
-app.listen(5000);
+mongoose.connect('mongodb+srv://themordhon:viral13120@cluster0.gz5o12j.mongodb.net/?retryWrites=true&w=majority')
+	.then(() => {
+		app.listen(5000, () => console.log('Connection Success'));
+	})
+	.catch(err => console.log(err))
+
