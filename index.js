@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const app = express();
 
 const productRoutes = require('./src/routes/products')
+const authRoutes = require('./src/routes/auth')
 
 /* Handle CORS */
 app.use((req, res, next) => {
@@ -16,6 +17,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 
-app.use('/v1', productRoutes);
+app.use('/v1/customer', productRoutes);
+app.use('/v1/auth', authRoutes);
 
 app.listen(5000);
