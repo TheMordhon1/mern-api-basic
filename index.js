@@ -21,5 +21,12 @@ app.use(bodyParser.json());
 app.use('/v1/customer', productRoutes);
 app.use('/v1/auth', authRoutes);
 app.use('/v1/blog', blogRoutes);
+app.use((error, req, res, next) => {
+	const status = error.errStatus || 500;
+	const message = error.errMessage || "invalid";
+	const data = error.errData;
+
+	res.status(status).json({ message: message, data: data })
+})
 
 app.listen(5000);
